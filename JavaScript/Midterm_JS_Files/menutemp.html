@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurant Menu</title>
+  </head>
+  <body>
+    <h1>Restaurant Menu</h1>
+    <h2>Appetizers</h2>
+    <ul>
+      <li>
+        <span id="item1">Spinach Dip - $8.99</span>
+        <button onclick="order('item1', 8.99)">Order</button>
+      </li>
+      <li>
+        <span id="item2">Mozzarella Sticks - $6.99</span>
+        <button onclick="order('item2', 6.99)">Order</button>
+      </li>
+    </ul>
+    <h2>Main Dishes</h2>
+    <ul>
+      <li>
+        <span id="item3">Grilled Chicken - $12.99</span>
+        <button onclick="order('item3', 12.99)">Order</button>
+      </li>
+      <li>
+        <span id="item4">Pasta Alfredo - $10.99</span>
+        <button onclick="order('item4', 10.99)">Order</button>
+      </li>
+    </ul>
+    <h2>Desserts</h2>
+    <ul>
+      <li>
+        <span id="item5">Chocolate Cake - $5.99</span>
+        <button onclick="order('item5', 5.99)">Order</button>
+      </li>
+      <li>
+        <span id="item6">Cheesecake - $6.99</span>
+        <button onclick="order('item6', 6.99)">Order</button>
+      </li>
+    </ul>
+    <h2>Total Price: $<span id="total">0.00</span></h2>
+    <script>
+      let totalPrice = 0;
+
+      function order(itemId, itemPrice) {
+        const item = document.getElementById(itemId);
+        const itemName = item.textContent.split(" - ")[0];
+        totalPrice += itemPrice;
+        document.getElementById("total").textContent = totalPrice.toFixed(2);
+        alert(`${itemName} ordered for $${itemPrice.toFixed(2)}.`);
+      }
+    </script>
+  </body>
+</html>
